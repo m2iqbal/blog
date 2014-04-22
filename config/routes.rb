@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
-  get 'sitemap/index'
 
-  get 'aboutme/index'
 
-  get 'welcome/index'
+
+  #these two lines are the same meaning. they set your welcome page to be the first page
+  get "/", to: "welcome#index" 
+  root "welcome#index"
+
+ #this sets the pages on the url ie localhost/sitemap
+  get 'sitemap', to: "sitemap#index"
+
+  get 'aboutme', to: "aboutme#index"
+
+  get 'welcome', to: "welcome#index"
+
+  get 'news', to: "news#index"
+
+  get 'resume', to: "resume#index"
+
+  get 'work', to: "work#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
