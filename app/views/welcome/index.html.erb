@@ -1,9 +1,58 @@
-<h1>Welcome#index</h1>
+<%if user_signed_in? && current_user.admin%>
+
+you are an admin
+<% end %>
+
+<%if user_signed_in? && !current_user.admin%>
+ <%= form_tag("/say_hi", method: "post") do %>
+
+  
+  <%= label_tag('my_password', "admin password") %>
+  <%= text_field_tag('my_password') %>
+  <%= submit_tag("Submit") %>
+
+ <% end %>
+<% end %>
+<%= @first_visit %>
+
+
+<% if @first_visit == true %>
+	<h1>Welcome#index</h1>
+<% end %>
+
+<% if @first_visit == false %>
+	<h1><i>Go away</i></h1>
+	<body bgcolor="#E6E6FA">
+<% end %>
+
 <p>Hello World!</p>
 <p>Lets take over the World</p>
   <style type="text/css">
     img { 
     	width: 200px ;
     	height:200px; }
+    <% if @first_visit %>
+    img {border: 2px solid red;}
+    <% end %>	
+    	
   </style>
+
+
 <img src="/assets/Mo.jpg">
+
+<%= form_tag("/say_hi", method: "post") do %>
+  <%= label_tag('my_name', "Whats your name") %>
+  <%= text_field_tag('my_name') %>
+  
+  <%= label_tag('my_password', "Password") %>
+  <%= text_field_tag('my_password') %>
+
+   <%= label_tag('my_color', "Color") %>
+  <%= text_field_tag('my_color') %>
+  
+  <%= submit_tag("Submit") %>
+
+<% end %>
+
+</hr>
+

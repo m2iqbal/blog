@@ -1,0 +1,49 @@
+<img src="/assets/dog.jpg">
+<img src="/assets/book.jpg">
+<img src="/assets/road.jpg">
+<img src="/assets/kayak.jpg">
+
+<%= 2 * 2000 %> 
+
+<% if 'Robby'.length > 4 %>
+you have a long name
+<% else %>
+you have a short name
+<% end%>
+
+<style type="text/css">
+	img { width:20%; }
+
+</style>
+
+<hr>
+
+<ul>
+<% ['mo','ximara', 'rooth'].each do | value| %>
+ <li> <%= value %> </li>
+<%end%>
+</ul>
+
+<ul>
+<% ['dog','book', 'road'].each do | value| %>
+   <%= image_tag(value + '.jpg') %>
+ 
+<%end%>
+</ul>	
+
+<hr>
+<ul>
+<% @image_names.each do | value| %>
+   <%= image_tag(value + '.jpg') %>
+ 
+<%end%>
+</ul>	
+
+<hr>
+<ul>
+<% @images.each do | image_record| %>
+   <%= image_tag( image_record.file_name ) %>
+   <%= image_record.name %>
+   <%= image_record.description %> 	
+<%end%>
+</ul>	

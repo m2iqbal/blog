@@ -1,0 +1,7 @@
+Hi <%= @say_hi_nam %> :: <%= @say_hi_pass %>
+
+<% if session['admin'] == true%>
+Your name and password is correct
+<% elsif session['admin'] == false %>
+wrong name and password
+<% end %>

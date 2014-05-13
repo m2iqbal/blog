@@ -1,23 +1,55 @@
 Rails.application.routes.draw do
+  
+  resources :projects
 
+  resources :images
 
+  devise_for :users
+  get 'admin/admin_page'
+
+  get 'admin/non_admin_page'
 
   #these two lines are the same meaning. they set your welcome page to be the first page
   get "/", to: "welcome#index" 
   root "welcome#index"
 
  #this sets the pages on the url ie localhost/sitemap
-  get 'sitemap', to: "sitemap#index"
+  get 'sitemap', 
+    to: "sitemap#index"
 
-  get 'aboutme', to: "aboutme#index"
+  get 'aboutme', 
+    to: "aboutme#index"
 
-  get 'welcome', to: "welcome#index"
+  get 'aboutme/dogs', 
+    to: "aboutme#dogs"
 
-  get 'news', to: "news#index"
+  get 'welcome', 
+    to: "welcome#index",
+    as: 'welcome_page'
 
-  get 'resume', to: "resume#index"
+  get 'news', 
+    to: "news#index"
 
-  get 'work', to: "work#index"
+  get 'resume', 
+    to: "resume#index"
+
+  get 'work', 
+    to: "work#index"
+
+  get 'gallary', 
+    to: "gallery#index"
+
+
+  post 'say_hi', to: 'welcome#say_hi'
+
+  post 'admin_page', to: 'admin#admin_page'
+
+   get 'admin_page', to: 'admin#admin_page'
+
+get 'non_admin_page', 
+    to: "admin#non_admin_page"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

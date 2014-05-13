@@ -1,0 +1,8 @@
+<h1>Admin#admin_page</h1>
+<p>Find me in app/views/admin/admin_page.html.erb</p>
+
+<% if session['admin'] == true%>
+Your name and password is correct
+<% elsif session['admin'] == false %>
+wrong name and password
+<% end %>
